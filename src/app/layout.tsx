@@ -24,8 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="min-h-full flex flex-col bg-[#fcfbf7] text-[#1f2d25] antialiased selection:bg-[#d8f3dc] selection:text-[#0f2e1f]">
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col bg-[#fcfbf7] text-[#1f2d25] antialiased selection:bg-[#d8f3dc] selection:text-[#0f2e1f]"
+      >
         <BannerNotice />
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
