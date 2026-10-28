@@ -7,7 +7,7 @@ import {
   MapPinIcon,
   CheckCircleIcon,
   ShieldCheckIcon,
-  ClockIcon,
+  AlertCircleIcon,
 } from "@/components/Icons";
 
 export default function ContactPage() {
@@ -55,11 +55,11 @@ export default function ContactPage() {
     },
     {
       q: "Who is eligible to claim available food listings?",
-      a: "Registered community shelters, orphanages, elder care homes, free community kitchens, food pantries, and authorized volunteer relief groups can reserve available batches.",
+      a: "Community shelters, orphanages, elder care homes, free community kitchens, food pantries, and volunteer relief groups can reserve available batches.",
     },
     {
       q: "How does pickup and transportation work?",
-      a: "Once an item is claimed, the recipient contacts the donor directly via the contact phone number provided. The claiming organization is responsible for arranging transport and collecting the food before the stated deadline.",
+      a: "Once an item is claimed, the recipient contacts the donor directly via the contact phone number provided on the listing. The claiming organization is responsible for arranging transport and collecting the food before the stated deadline.",
     },
     {
       q: "What types of food can be donated?",
@@ -79,23 +79,34 @@ export default function ContactPage() {
           Contact & Community Support
         </h1>
         <p className="text-sm text-[#526359] leading-relaxed">
-          Have questions about donating food, registering your shelter, or coordinating community surplus pickups? Reach out to our team below.
+          Have questions about donating food, community partnerships, or surplus coordination? Reach out to our community support lead below.
         </p>
       </div>
 
+      {/* Discreet Demonstration Notice */}
+      <div className="bg-[#f0f7f3] border border-[#d8f3dc] rounded-2xl p-4 text-xs text-[#2d6a4f] flex items-start gap-3">
+        <ShieldCheckIcon className="w-4 h-4 shrink-0 mt-0.5 text-[#2d6a4f]" size={16} />
+        <div>
+          <strong className="font-semibold text-[#1b4332]">Platform Demonstration Notice:</strong>
+          <span className="text-[#526359] ml-1">
+            This website is currently a demonstration platform. Food pickup and distribution are not automatically coordinated, and all handovers must be arranged directly between verified donors and recipient organizations.
+          </span>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Contact Information Cards */}
+        {/* Left: Contact Information Card */}
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-[#1b4332] rounded-3xl p-6 sm:p-8 text-white space-y-6 shadow-xl">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-[#52b788]">
-                Community Support Center
+                Direct Contact
               </span>
               <h3 className="text-xl font-bold text-white mt-1">
-                SmartFoodShare Operations Hub
+                SmartFoodShare Community Support
               </h3>
               <p className="text-xs text-[#d8f3dc] mt-2 leading-relaxed">
-                Dedicated to facilitating local food recovery and connecting surplus providers with community relief efforts.
+                Connect with our local coordinator for platform questions, partner inquiries, and food sharing suggestions.
               </p>
             </div>
 
@@ -105,9 +116,9 @@ export default function ContactPage() {
                   <MapPinIcon className="w-4 h-4" size={16} />
                 </div>
                 <div>
-                  <span className="text-[#a3b899] text-xs block">Regional Coordination Office</span>
+                  <span className="text-[#a3b899] text-xs block">Location</span>
                   <span className="font-medium text-white">
-                    Civic Center Plaza, Suite 304, Metro Central
+                    Chhatrapati Sambhajinagar, Maharashtra
                   </span>
                 </div>
               </div>
@@ -117,8 +128,13 @@ export default function ContactPage() {
                   <MailIcon className="w-4 h-4" size={16} />
                 </div>
                 <div>
-                  <span className="text-[#a3b899] text-xs block">Support Email</span>
-                  <span className="font-medium text-white">support@smartfoodshare.org</span>
+                  <span className="text-[#a3b899] text-xs block">Email</span>
+                  <a
+                    href="mailto:ajkamble199@gmail.com"
+                    className="font-medium text-white hover:text-[#52b788] underline decoration-dotted transition-colors"
+                  >
+                    ajkamble199@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -127,30 +143,25 @@ export default function ContactPage() {
                   <PhoneIcon className="w-4 h-4" size={16} />
                 </div>
                 <div>
-                  <span className="text-[#a3b899] text-xs block">Helpline & Dispatch</span>
-                  <span className="font-medium text-white">+91 (0) 80 4123 4567</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#2d6a4f] flex items-center justify-center shrink-0 text-[#52b788]">
-                  <ClockIcon className="w-4 h-4" size={16} />
-                </div>
-                <div>
-                  <span className="text-[#a3b899] text-xs block">Operating Hours</span>
-                  <span className="font-medium text-white">Monday – Saturday: 8:00 AM – 9:00 PM</span>
+                  <span className="text-[#a3b899] text-xs block">Phone</span>
+                  <a
+                    href="tel:7066503267"
+                    className="font-medium text-white hover:text-[#52b788] underline decoration-dotted transition-colors"
+                  >
+                    7066503267
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-6 border border-[#e5ded3] card-shadow space-y-3 text-xs text-[#526359]">
+          <div className="bg-white rounded-3xl p-6 border border-[#e5ded3] card-shadow space-y-2 text-xs text-[#526359]">
             <h4 className="font-bold text-sm text-[#1b4332] flex items-center gap-2">
               <ShieldCheckIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
               Direct Communication
             </h4>
             <p className="leading-relaxed">
-              For urgent same-day food pickups, donors and claimers are encouraged to call directly using the telephone contact displayed on each food listing.
+              For active food listings, donors and claiming organizations coordinate pickup directly using the phone numbers listed on each food card.
             </p>
           </div>
         </div>
@@ -163,9 +174,9 @@ export default function ContactPage() {
                 <div className="w-16 h-16 rounded-full bg-[#d8f3dc] text-[#1b4332] flex items-center justify-center mx-auto shadow-inner">
                   <CheckCircleIcon className="w-10 h-10 text-[#2d6a4f]" size={40} />
                 </div>
-                <h3 className="text-2xl font-bold text-[#1b4332]">Message Sent Successfully!</h3>
+                <h3 className="text-2xl font-bold text-[#1b4332]">Demonstration Form Submitted</h3>
                 <p className="text-sm text-[#526359] max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong>{name}</strong>. Your message has been received. Our community coordinator will respond to <strong>{email}</strong> shortly.
+                  Thank you, <strong>{name}</strong>. Your feedback has been recorded in this browser session. Because this is currently a demonstration platform without an active email backend, no message was transmitted to a live support inbox.
                 </p>
 
                 <div className="bg-[#fcfbf7] border border-[#e5ded3] p-4 rounded-xl text-left text-xs max-w-md mx-auto space-y-1">
@@ -174,6 +185,9 @@ export default function ContactPage() {
                   </p>
                   <p>
                     <strong>Category:</strong> {category}
+                  </p>
+                  <p>
+                    <strong>Contact Email:</strong> {email}
                   </p>
                 </div>
 
@@ -191,7 +205,7 @@ export default function ContactPage() {
                 <div className="pb-2 border-b border-[#f1ede4]">
                   <h3 className="font-bold text-lg text-[#1b4332]">Send Us a Message</h3>
                   <p className="text-xs text-[#526359]">
-                    Fill in your details below and we will get back to you promptly.
+                    Fill in your details below for demo feedback and general questions.
                   </p>
                 </div>
 
@@ -251,7 +265,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Inquiring about daily bakery surplus donation"
+                      placeholder="e.g. Question about daily surplus coordination"
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
                       className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -288,7 +302,7 @@ export default function ContactPage() {
                     className="inline-flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-semibold text-sm px-7 py-3 rounded-xl shadow transition-all cursor-pointer"
                   >
                     <MailIcon className="w-4 h-4 text-[#52b788]" size={16} />
-                    <span>Send Message</span>
+                    <span>Send Message (Demo)</span>
                   </button>
                 </div>
               </form>
