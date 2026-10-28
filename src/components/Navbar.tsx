@@ -14,7 +14,7 @@ export default function Navbar() {
     { name: "Available Food", href: "/available-food" },
     { name: "Donate Food", href: "/donate" },
     { name: "Request Food", href: "/request-food" },
-    { name: "About Project", href: "/about" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -33,7 +33,7 @@ export default function Navbar() {
             className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] rounded-lg p-1"
           >
             <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#1b4332] to-[#2d6a4f] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <LeafIcon className="w-6 h-6 text-[#52b788]" />
+              <LeafIcon className="w-6 h-6 text-[#52b788]" size={24} />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
@@ -42,7 +42,7 @@ export default function Navbar() {
                 </span>
               </div>
               <p className="text-[11px] text-[#526359] font-medium tracking-wide uppercase">
-                CEP Food Distribution Platform
+                Food Donation & Redistribution Platform
               </p>
             </div>
           </Link>
@@ -71,9 +71,9 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               href="/donate"
-              className="inline-flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow-sm hover:shadow transition-all transform active:scale-95"
+              className="inline-flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow-sm hover:shadow transition-all transform active:scale-95 cursor-pointer"
             >
-              <HeartHandIcon className="w-4 h-4 text-[#52b788]" />
+              <HeartHandIcon className="w-4 h-4 text-[#52b788]" size={16} />
               <span>Donate Food</span>
             </Link>
           </div>
@@ -82,10 +82,10 @@ export default function Navbar() {
           <div className="flex md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-[#1b4332] hover:bg-[#efe8da] focus:outline-none"
+              className="p-2 rounded-lg text-[#1b4332] hover:bg-[#efe8da] focus:outline-none cursor-pointer"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+              {mobileMenuOpen ? <XIcon className="w-6 h-6" size={24} /> : <MenuIcon className="w-6 h-6" size={24} />}
             </button>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#fdfbf7] border-b border-[#e5ded3] px-4 pt-2 pb-6 space-y-1 shadow-lg animate-in slide-in-from-top duration-200">
+        <div className="md:hidden bg-[#fdfbf7] border-b border-[#e5ded3] px-4 pt-2 pb-6 space-y-1 shadow-lg">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
@@ -117,7 +117,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full bg-[#2d6a4f] text-white text-sm font-semibold py-2.5 rounded-xl shadow"
             >
-              <HeartHandIcon className="w-4 h-4 text-[#52b788]" />
+              <HeartHandIcon className="w-4 h-4 text-[#52b788]" size={16} />
               Donate Food
             </Link>
             <Link
@@ -125,7 +125,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full bg-[#efe8da] text-[#1b4332] text-sm font-semibold py-2.5 rounded-xl"
             >
-              <UtensilsIcon className="w-4 h-4" />
+              <UtensilsIcon className="w-4 h-4" size={16} />
               Browse Available Food
             </Link>
           </div>

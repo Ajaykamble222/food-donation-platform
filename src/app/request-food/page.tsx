@@ -13,13 +13,12 @@ import {
   MailIcon,
   ShieldCheckIcon,
   SparklesIcon,
-  HeartHandIcon,
 } from "@/components/Icons";
 
 export default function RequestFoodPage() {
   const [requesterName, setRequesterName] = useState("");
   const [organization, setOrganization] = useState("");
-  const [requesterType, setRequesterType] = useState("NGO / Charity Organization");
+  const [requesterType, setRequesterType] = useState("Community Shelter");
   const [foodRequirement, setFoodRequirement] = useState("");
   const [quantityNeeded, setQuantityNeeded] = useState("");
   const [location, setLocation] = useState("");
@@ -45,11 +44,11 @@ export default function RequestFoodPage() {
 
   const validate = () => {
     const errs: Record<string, string> = {};
-    if (!requesterName.trim()) errs.requesterName = "Coordinator or representative name is required.";
-    if (!organization.trim()) errs.organization = "Organization / Shelter name is required.";
+    if (!requesterName.trim()) errs.requesterName = "Coordinator or contact name is required.";
+    if (!organization.trim()) errs.organization = "Organization or shelter name is required.";
     if (!foodRequirement.trim()) errs.foodRequirement = "Please specify the food requirement.";
     if (!quantityNeeded.trim()) errs.quantityNeeded = "Please state the quantity or number of beneficiaries.";
-    if (!location.trim()) errs.location = "Delivery / pickup address is required.";
+    if (!location.trim()) errs.location = "Delivery or pickup address is required.";
     if (!contactPhone.trim()) {
       errs.contactPhone = "Contact phone number is required.";
     } else if (contactPhone.replace(/\D/g, "").length < 7) {
@@ -103,14 +102,14 @@ export default function RequestFoodPage() {
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-2">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#d8f3dc] text-[#1b4332] text-xs font-semibold">
-          <UtensilsIcon className="w-4 h-4 text-[#2d6a4f]" />
-          <span>Shelter & NGO Coordination</span>
+          <UtensilsIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+          <span>Community Food Assistance</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1b4332] tracking-tight">
           Request Food for Beneficiaries
         </h1>
         <p className="text-sm text-[#526359] leading-relaxed">
-          Are you managing a community shelter, orphanage, elder care home, or relief initiative? Submit your food requirements so registered donors can coordinate surplus dispatch.
+          Are you coordinating meals for a shelter, community kitchen, elder care home, or family in need? Post your specific food requirements so local donors can match surplus food directly with you.
         </p>
       </div>
 
@@ -118,7 +117,7 @@ export default function RequestFoodPage() {
         /* Confirmation Screen */
         <div className="bg-white rounded-3xl border border-[#e5ded3] p-8 sm:p-12 card-shadow text-center space-y-6 animate-in zoom-in-95 duration-200">
           <div className="w-16 h-16 rounded-full bg-[#d8f3dc] text-[#1b4332] flex items-center justify-center mx-auto shadow-inner">
-            <CheckCircleIcon className="w-10 h-10 text-[#2d6a4f]" />
+            <CheckCircleIcon className="w-10 h-10 text-[#2d6a4f]" size={40} />
           </div>
 
           <div className="space-y-2">
@@ -126,7 +125,7 @@ export default function RequestFoodPage() {
               Food Requirement Registered!
             </h2>
             <p className="text-sm text-[#526359] max-w-lg mx-auto">
-              Your community requirement has been recorded in the platform's simulated registry. Donors and student volunteers can view this listing to prioritize matches.
+              Your food request has been listed on the community registry. Nearby donors can view your requirement and coordinate surplus meal deliveries or pickups.
             </p>
           </div>
 
@@ -147,20 +146,12 @@ export default function RequestFoodPage() {
                 <strong className="text-[#1b4332]">Target Quantity:</strong> {submittedReq.quantityNeeded}
               </p>
               <p>
-                <strong className="text-[#1b4332]">Destination:</strong> {submittedReq.location}
+                <strong className="text-[#1b4332]">Pickup / Delivery Location:</strong> {submittedReq.location}
               </p>
               <p>
-                <strong className="text-[#1b4332]">Contact Coordinator:</strong> {submittedReq.requesterName} ({submittedReq.contactPhone})
+                <strong className="text-[#1b4332]">Coordinator Contact:</strong> {submittedReq.requesterName} ({submittedReq.contactPhone})
               </p>
             </div>
-          </div>
-
-          {/* Academic notice */}
-          <div className="p-4 bg-[#f0f7f3] border border-[#d8f3dc] rounded-2xl max-w-lg mx-auto text-xs text-[#2d6a4f] flex items-start gap-2.5 text-left">
-            <ShieldCheckIcon className="w-5 h-5 shrink-0 mt-0.5 text-[#2d6a4f]" />
-            <p>
-              <strong>Academic Prototype Note:</strong> This submission updates client-side localStorage. In a real-world system, push notifications would be dispatched to donors within a 5 km radius.
-            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
@@ -168,7 +159,7 @@ export default function RequestFoodPage() {
               href="/available-food"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-semibold text-sm px-6 py-3 rounded-xl shadow transition-all cursor-pointer"
             >
-              <UtensilsIcon className="w-4 h-4 text-[#52b788]" />
+              <UtensilsIcon className="w-4 h-4 text-[#52b788]" size={16} />
               <span>Browse Currently Available Food</span>
             </Link>
 
@@ -189,18 +180,18 @@ export default function RequestFoodPage() {
           {/* Section 1: Organization & Requester */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-[#f1ede4]">
-              <BuildingIcon className="w-5 h-5 text-[#2d6a4f]" />
+              <BuildingIcon className="w-5 h-5 text-[#2d6a4f]" size={20} />
               <h2 className="font-bold text-lg text-[#1b4332]">1. Organization & Contact Details</h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-[#1b4332] mb-1">
-                  Shelter / NGO / Initiative Name *
+                  Shelter, Kitchen, or Community Group Name *
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Asha Community Shelter, Hope Foundation"
+                  placeholder="e.g. St. Jude Shelter for Families, Helping Hands Kitchen"
                   value={organization}
                   onChange={(e) => setOrganization(e.target.value)}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -221,19 +212,18 @@ export default function RequestFoodPage() {
                   onChange={(e) => setRequesterType(e.target.value)}
                   className="w-full text-sm px-3.5 py-2.5 rounded-xl border border-[#d2c9b8] bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
                 >
-                  <option value="NGO / Charity Organization">NGO / Charity Organization</option>
-                  <option value="Homeless Shelter">Community Homeless Shelter</option>
-                  <option value="Orphanage / Child Care">Orphanage / Child Care Center</option>
-                  <option value="Elder Care Home">Elder Care / Senior Home</option>
-                  <option value="Student Volunteer Group">Student Volunteer Group</option>
-                  <option value="Community Kitchen">Community Free Kitchen (Langar / Food Drive)</option>
-                  <option value="Individual in Need">Individual in Urgent Need</option>
+                  <option value="Community Shelter">Community Shelter</option>
+                  <option value="Community Kitchen">Community Kitchen / Free Meal Center</option>
+                  <option value="Orphanage & Child Care">Orphanage & Child Care Home</option>
+                  <option value="Elder Care Home">Elder Care / Senior Living Center</option>
+                  <option value="Volunteer Relief Group">Volunteer Relief Initiative</option>
+                  <option value="Family / Individual in Need">Family / Individual in Need</option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-[#1b4332] mb-1">
-                  Representative / Coordinator Name *
+                  Coordinator / Representative Name *
                 </label>
                 <input
                   type="text"
@@ -245,7 +235,7 @@ export default function RequestFoodPage() {
                   }`}
                 />
                 {errors.requesterName && (
-                  <p className="text-red-600 text-xs mt-1">{errors.foodRequirement}</p>
+                  <p className="text-red-600 text-xs mt-1">{errors.requesterName}</p>
                 )}
               </div>
 
@@ -273,7 +263,7 @@ export default function RequestFoodPage() {
                 </label>
                 <input
                   type="email"
-                  placeholder="e.g. coordinator@ashashelter.org"
+                  placeholder="e.g. contact@stjudeshelter.org"
                   value={contactEmail}
                   onChange={(e) => setContactEmail(e.target.value)}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -290,7 +280,7 @@ export default function RequestFoodPage() {
           {/* Section 2: Food Need & Urgency */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 pb-2 border-b border-[#f1ede4]">
-              <UtensilsIcon className="w-5 h-5 text-[#2d6a4f]" />
+              <UtensilsIcon className="w-5 h-5 text-[#2d6a4f]" size={20} />
               <h2 className="font-bold text-lg text-[#1b4332]">2. Food Requirements & Urgency</h2>
             </div>
 
@@ -301,7 +291,7 @@ export default function RequestFoodPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Prepared hot dinner for 40 individuals, Fresh bread loaves, Dry pulses and rice"
+                  placeholder="e.g. Cooked hot dinner for 35 people, Dry rice and lentils, Fresh fruit or bakery rolls"
                   value={foodRequirement}
                   onChange={(e) => setFoodRequirement(e.target.value)}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -319,7 +309,7 @@ export default function RequestFoodPage() {
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. 40-50 Meals, 20 kg grains"
+                  placeholder="e.g. 35-40 Meals, 25 kg raw grains"
                   value={quantityNeeded}
                   onChange={(e) => setQuantityNeeded(e.target.value)}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -343,17 +333,17 @@ export default function RequestFoodPage() {
                   <option value="Immediate (Within 4 hrs)">Immediate (Within 4 hrs)</option>
                   <option value="Today">Today (Evening)</option>
                   <option value="Tomorrow">Tomorrow</option>
-                  <option value="Flexible / Standing Request">Flexible / Standing Need</option>
+                  <option value="Ongoing / Standing Need">Ongoing / Standing Need</option>
                 </select>
               </div>
 
               <div className="sm:col-span-2">
                 <label className="block text-xs font-semibold text-[#1b4332] mb-1">
-                  Delivery / Pickup Location *
+                  Location / Address for Delivery or Pickup *
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Sector 14 Shelter Home, Community Hall Gate #2"
+                  placeholder="e.g. 4th Cross Road, Community Shelter Hall"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -367,29 +357,16 @@ export default function RequestFoodPage() {
 
               <div className="sm:col-span-2">
                 <label className="block text-xs font-semibold text-[#1b4332] mb-1">
-                  Special Notes or Dietary Constraints
+                  Special Notes, Dietary Needs, or Transport Details
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="e.g. Vegetarian preferred for children. We have volunteer transport available for pickup if needed."
+                  placeholder="e.g. Vegetarian preferred for children. Volunteer pickup transport is available if donor cannot deliver."
                   value={additionalNotes}
                   onChange={(e) => setAdditionalNotes(e.target.value)}
                   className="w-full text-sm px-3.5 py-2.5 rounded-xl border border-[#d2c9b8] bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
                 />
               </div>
-            </div>
-          </div>
-
-          {/* Academic notice */}
-          <div className="p-4 bg-[#f0f7f3] border border-[#d8f3dc] rounded-2xl flex items-start gap-3 text-xs text-[#2d6a4f]">
-            <ShieldCheckIcon className="w-5 h-5 shrink-0 mt-0.5 text-[#2d6a4f]" />
-            <div>
-              <strong className="block text-[#1b4332] font-semibold mb-0.5">
-                Academic CEP Demonstration Mode
-              </strong>
-              <p className="text-[#526359] leading-relaxed">
-                This is a simulation form for testing the request intake workflow. No commercial logistics or pickup riders will be dispatched.
-              </p>
             </div>
           </div>
 
@@ -405,22 +382,22 @@ export default function RequestFoodPage() {
               type="submit"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-semibold text-sm px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer"
             >
-              <UtensilsIcon className="w-4 h-4 text-[#52b788]" />
+              <UtensilsIcon className="w-4 h-4 text-[#52b788]" size={16} />
               <span>Submit Food Requirement</span>
             </button>
           </div>
         </form>
       )}
 
-      {/* Community Requests Log Preview */}
+      {/* Community Requests Feed */}
       <div className="space-y-4 pt-6 border-t border-[#e5ded3]">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="font-bold text-lg text-[#1b4332]">
-              Active Community Requirements Log ({allRequests.length})
+              Active Community Food Requests ({allRequests.length})
             </h3>
             <p className="text-xs text-[#526359]">
-              Live requests posted by verified local community shelters and coordinators.
+              Live requirements posted by community kitchens, shelters, and outreach teams.
             </p>
           </div>
         </div>
@@ -455,10 +432,10 @@ export default function RequestFoodPage() {
 
               <div className="pt-2 border-t border-[#f1ede4] flex items-center justify-between text-[11px] text-[#718277]">
                 <span className="flex items-center gap-1">
-                  <MapPinIcon className="w-3 h-3 text-[#2d6a4f]" />
+                  <MapPinIcon className="w-3 h-3 text-[#2d6a4f]" size={12} />
                   {req.location}
                 </span>
-                <span>Coordinator: {req.requesterName}</span>
+                <span>Contact: {req.requesterName}</span>
               </div>
             </div>
           ))}

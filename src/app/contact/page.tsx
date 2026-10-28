@@ -5,10 +5,8 @@ import {
   MailIcon,
   PhoneIcon,
   MapPinIcon,
-  BuildingIcon,
   CheckCircleIcon,
   ShieldCheckIcon,
-  SparklesIcon,
   ClockIcon,
 } from "@/components/Icons";
 
@@ -16,7 +14,7 @@ export default function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
-  const [category, setCategory] = useState("Academic Evaluation Inquiry");
+  const [category, setCategory] = useState("General Question");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -52,20 +50,20 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: "Does this platform imply real food pickup or active delivery fleets?",
-      a: "No. This application is an educational Community Engagement Project (CEP) prototype designed for academic evaluation. All listings, claims, and donor phone numbers are simulated for demonstration purposes.",
+      q: "Who can donate food on this platform?",
+      a: "Commercial kitchens, restaurants, bakeries, caterers, banquet halls, community kitchens, and households with safe, edible surplus food are welcome to post listings.",
     },
     {
-      q: "How does the platform handle data persistence without a database server?",
-      a: "The project uses HTML5 LocalStorage and browser CustomEvents. Any donation posted via the 'Donate Food' page is immediately saved in the browser cache and rendered across all listings during your viva or presentation.",
+      q: "Who is eligible to claim available food listings?",
+      a: "Registered community shelters, orphanages, elder care homes, free community kitchens, food pantries, and authorized volunteer relief groups can reserve available batches.",
     },
     {
-      q: "What food safety precautions are demonstrated in this project?",
-      a: "The system enforces mandatory safe pickup deadlines, preparation timestamps, and dietary labeling (Vegetarian, Vegan, Non-Veg) to illustrate proper cold-chain and perishability safeguards.",
+      q: "How does pickup and transportation work?",
+      a: "Once an item is claimed, the recipient contacts the donor directly via the contact phone number provided. The claiming organization is responsible for arranging transport and collecting the food before the stated deadline.",
     },
     {
-      q: "Can this project be deployed to GitHub and Vercel for grading?",
-      a: "Yes! Because it relies on standard Next.js and client-side storage with zero secret keys or server dependencies, it builds cleanly and can be deployed in under 2 minutes on Vercel.",
+      q: "What types of food can be donated?",
+      a: "We welcome freshly prepared cooked meals (held at safe temperatures), fresh bread and bakery goods, fresh fruits and produce crates, unexpired sealed packaged food, and properly refrigerated dairy products.",
     },
   ];
 
@@ -74,14 +72,14 @@ export default function ContactPage() {
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-2">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#d8f3dc] text-[#1b4332] text-xs font-semibold">
-          <MailIcon className="w-4 h-4 text-[#2d6a4f]" />
-          <span>Academic Project Helpdesk</span>
+          <MailIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+          <span>Support & Inquiries</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1b4332] tracking-tight">
-          Contact & Evaluation Support
+          Contact & Community Support
         </h1>
         <p className="text-sm text-[#526359] leading-relaxed">
-          Have questions regarding the Community Engagement Project (CEP) architecture, demo flow, or academic presentation guidelines? Reach out below.
+          Have questions about donating food, registering your shelter, or coordinating community surplus pickups? Reach out to our team below.
         </p>
       </div>
 
@@ -91,56 +89,56 @@ export default function ContactPage() {
           <div className="bg-[#1b4332] rounded-3xl p-6 sm:p-8 text-white space-y-6 shadow-xl">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-[#52b788]">
-                CEP Project Lab
+                Community Support Center
               </span>
               <h3 className="text-xl font-bold text-white mt-1">
-                College Innovation & Social Impact Center
+                SmartFoodShare Operations Hub
               </h3>
               <p className="text-xs text-[#d8f3dc] mt-2 leading-relaxed">
-                Department of Computer Science & Engineering / Community Engagement Cell.
+                Dedicated to facilitating local food recovery and connecting surplus providers with community relief efforts.
               </p>
             </div>
 
             <div className="space-y-4 text-xs sm:text-sm">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#2d6a4f] flex items-center justify-center shrink-0 text-[#52b788]">
-                  <MapPinIcon className="w-4 h-4" />
+                  <MapPinIcon className="w-4 h-4" size={16} />
                 </div>
                 <div>
-                  <span className="text-[#a3b899] text-xs block">Campus Location</span>
+                  <span className="text-[#a3b899] text-xs block">Regional Coordination Office</span>
                   <span className="font-medium text-white">
-                    Academic Block 4, Lab 206, University Campus
+                    Civic Center Plaza, Suite 304, Metro Central
                   </span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#2d6a4f] flex items-center justify-center shrink-0 text-[#52b788]">
-                  <MailIcon className="w-4 h-4" />
+                  <MailIcon className="w-4 h-4" size={16} />
                 </div>
                 <div>
-                  <span className="text-[#a3b899] text-xs block">Academic Project Email</span>
-                  <span className="font-medium text-white">cep.foodshare.demo@college.edu</span>
+                  <span className="text-[#a3b899] text-xs block">Support Email</span>
+                  <span className="font-medium text-white">support@smartfoodshare.org</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#2d6a4f] flex items-center justify-center shrink-0 text-[#52b788]">
-                  <PhoneIcon className="w-4 h-4" />
+                  <PhoneIcon className="w-4 h-4" size={16} />
                 </div>
                 <div>
-                  <span className="text-[#a3b899] text-xs block">Project Demo Helpline</span>
-                  <span className="font-medium text-white">+91 (0) 80 2345 6789</span>
+                  <span className="text-[#a3b899] text-xs block">Helpline & Dispatch</span>
+                  <span className="font-medium text-white">+91 (0) 80 4123 4567</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-[#2d6a4f] flex items-center justify-center shrink-0 text-[#52b788]">
-                  <ClockIcon className="w-4 h-4" />
+                  <ClockIcon className="w-4 h-4" size={16} />
                 </div>
                 <div>
                   <span className="text-[#a3b899] text-xs block">Operating Hours</span>
-                  <span className="font-medium text-white">Monday – Friday: 9:00 AM – 5:00 PM</span>
+                  <span className="font-medium text-white">Monday – Saturday: 8:00 AM – 9:00 PM</span>
                 </div>
               </div>
             </div>
@@ -148,26 +146,26 @@ export default function ContactPage() {
 
           <div className="bg-white rounded-3xl p-6 border border-[#e5ded3] card-shadow space-y-3 text-xs text-[#526359]">
             <h4 className="font-bold text-sm text-[#1b4332] flex items-center gap-2">
-              <ShieldCheckIcon className="w-4 h-4 text-[#2d6a4f]" />
-              Submission Guidelines
+              <ShieldCheckIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+              Direct Communication
             </h4>
             <p className="leading-relaxed">
-              When presenting to college evaluators, highlight the simplicity of the zero-cost architecture and demonstrate the real-time card state updates directly in the browser.
+              For urgent same-day food pickups, donors and claimers are encouraged to call directly using the telephone contact displayed on each food listing.
             </p>
           </div>
         </div>
 
-        {/* Right: Interactive Contact Form */}
+        {/* Right: Contact Form */}
         <div className="lg:col-span-7">
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#e5ded3] card-shadow">
             {submitted ? (
               <div className="text-center py-8 space-y-4 animate-in zoom-in-95 duration-200">
                 <div className="w-16 h-16 rounded-full bg-[#d8f3dc] text-[#1b4332] flex items-center justify-center mx-auto shadow-inner">
-                  <CheckCircleIcon className="w-10 h-10 text-[#2d6a4f]" />
+                  <CheckCircleIcon className="w-10 h-10 text-[#2d6a4f]" size={40} />
                 </div>
                 <h3 className="text-2xl font-bold text-[#1b4332]">Message Sent Successfully!</h3>
                 <p className="text-sm text-[#526359] max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong>{name}</strong>. Your feedback inquiry has been recorded in this academic demonstration interface.
+                  Thank you, <strong>{name}</strong>. Your message has been received. Our community coordinator will respond to <strong>{email}</strong> shortly.
                 </p>
 
                 <div className="bg-[#fcfbf7] border border-[#e5ded3] p-4 rounded-xl text-left text-xs max-w-md mx-auto space-y-1">
@@ -176,9 +174,6 @@ export default function ContactPage() {
                   </p>
                   <p>
                     <strong>Category:</strong> {category}
-                  </p>
-                  <p>
-                    <strong>Sender Email:</strong> {email}
                   </p>
                 </div>
 
@@ -194,9 +189,9 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="pb-2 border-b border-[#f1ede4]">
-                  <h3 className="font-bold text-lg text-[#1b4332]">Send a Demonstration Message</h3>
+                  <h3 className="font-bold text-lg text-[#1b4332]">Send Us a Message</h3>
                   <p className="text-xs text-[#526359]">
-                    Validate form submission and demo response modal.
+                    Fill in your details below and we will get back to you promptly.
                   </p>
                 </div>
 
@@ -207,7 +202,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Dr. A. Sharma / Student Reviewer"
+                      placeholder="e.g. Rahul Sharma"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -223,7 +218,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="email"
-                      placeholder="e.g. reviewer@college.edu"
+                      placeholder="e.g. rahul@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -242,10 +237,11 @@ export default function ContactPage() {
                       onChange={(e) => setCategory(e.target.value)}
                       className="w-full text-sm px-3.5 py-2.5 rounded-xl border border-[#d2c9b8] bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
                     >
-                      <option value="Academic Evaluation Inquiry">Academic Evaluation Inquiry</option>
-                      <option value="Donor Partnership Query">Donor Partnership Query</option>
-                      <option value="NGO / Shelter Collaboration">NGO / Shelter Collaboration</option>
-                      <option value="Technical Feedback">Technical Feedback on UI/UX</option>
+                      <option value="General Question">General Question</option>
+                      <option value="Food Donor Assistance">Food Donor Assistance</option>
+                      <option value="Shelter / NGO Partnership">Shelter / NGO Partnership</option>
+                      <option value="Volunteer Coordination">Volunteer Coordination</option>
+                      <option value="Feedback / Suggestions">Feedback / Suggestions</option>
                     </select>
                   </div>
 
@@ -255,7 +251,7 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. CEP Project Review Feedback"
+                      placeholder="e.g. Inquiring about daily bakery surplus donation"
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
                       className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -273,7 +269,7 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       rows={4}
-                      placeholder="Type your message, suggestions, or evaluation comments here..."
+                      placeholder="Type your message, query, or comments here..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-[#fcfbf7] focus:outline-none focus:ring-2 focus:ring-[#2d6a4f] ${
@@ -291,8 +287,8 @@ export default function ContactPage() {
                     type="submit"
                     className="inline-flex items-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-semibold text-sm px-7 py-3 rounded-xl shadow transition-all cursor-pointer"
                   >
-                    <MailIcon className="w-4 h-4 text-[#52b788]" />
-                    <span>Send Message (Demo)</span>
+                    <MailIcon className="w-4 h-4 text-[#52b788]" size={16} />
+                    <span>Send Message</span>
                   </button>
                 </div>
               </form>
@@ -305,10 +301,10 @@ export default function ContactPage() {
       <div className="pt-10 border-t border-[#e5ded3] space-y-6">
         <div className="text-center max-w-2xl mx-auto space-y-1">
           <span className="text-xs font-bold uppercase tracking-wider text-[#2d6a4f]">
-            Viva & Evaluation FAQ
+            Platform FAQ
           </span>
           <h3 className="text-2xl font-extrabold text-[#1b4332]">
-            Frequently Asked Project Questions
+            Frequently Asked Questions
           </h3>
         </div>
 

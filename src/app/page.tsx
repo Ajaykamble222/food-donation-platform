@@ -16,6 +16,7 @@ import {
   ClockIcon,
   MapPinIcon,
   BuildingIcon,
+  BoxIcon,
 } from "@/components/Icons";
 
 export default function HomePage() {
@@ -30,7 +31,6 @@ export default function HomePage() {
 
   useEffect(() => {
     loadData();
-
     const handleUpdate = () => loadData();
     window.addEventListener("food-donations-updated", handleUpdate);
     return () => window.removeEventListener("food-donations-updated", handleUpdate);
@@ -52,70 +52,73 @@ export default function HomePage() {
             {/* Left Column: Hero Text */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#d8f3dc] text-[#1b4332] text-xs font-semibold border border-[#52b788]/40 shadow-sm">
-                <SparklesIcon className="w-4 h-4 text-[#2d6a4f]" />
-                <span>Smart Food Donation & Distribution Platform</span>
+                <SparklesIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+                <span>Community Surplus Food Redistribution</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1b4332] tracking-tight leading-[1.15]">
-                Turn Surplus Food Into <span className="text-[#2d6a4f] underline decoration-[#52b788]/60 decoration-wavy">Shared Meals</span>.
+                Share Good Food. <br className="hidden sm:inline" />
+                <span className="text-[#2d6a4f] underline decoration-[#52b788]/60 decoration-wavy">
+                  Reduce Food Waste.
+                </span>
               </h1>
 
               <p className="text-base sm:text-lg text-[#526359] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                A student-engineered digital platform bridging local canteens, restaurants, and catered events with verified community shelters and NGOs. Reduce edible food waste while supporting those in need.
+                Connect surplus food from homes, restaurants, bakeries, and community kitchens with people and organizations that can use it.
               </p>
 
               {/* Call to Actions */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                 <Link
                   href="/donate"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-semibold text-base px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2d6a4f] hover:bg-[#1b4332] text-white font-semibold text-base px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
                 >
-                  <HeartHandIcon className="w-5 h-5 text-[#52b788]" />
+                  <HeartHandIcon className="w-5 h-5 text-[#52b788]" size={20} />
                   <span>Donate Food</span>
                 </Link>
 
                 <Link
                   href="/available-food"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-[#efe8da] text-[#1b4332] font-semibold text-base px-7 py-3.5 rounded-xl border border-[#d2c9b8] shadow-sm hover:shadow transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-[#efe8da] text-[#1b4332] font-semibold text-base px-7 py-3.5 rounded-xl border border-[#d2c9b8] shadow-sm hover:shadow transition-all cursor-pointer"
                 >
-                  <UtensilsIcon className="w-5 h-5 text-[#2d6a4f]" />
+                  <UtensilsIcon className="w-5 h-5 text-[#2d6a4f]" size={20} />
                   <span>Find Available Food</span>
                 </Link>
               </div>
 
-              {/* Trust Indicators */}
+              {/* Trust & Policy Indicators */}
               <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[#526359]">
                 <div className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-4 h-4 text-[#2d6a4f]" />
-                  <span>Simulated Local Demo Inventory</span>
+                  <CheckCircleIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+                  <span>Direct Local Coordination</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-4 h-4 text-[#2d6a4f]" />
-                  <span>Instant LocalStorage Sync</span>
+                  <CheckCircleIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+                  <span>Clear Pickup Deadlines</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircleIcon className="w-4 h-4 text-[#2d6a4f]" />
-                  <span>Academic CEP Submission</span>
+                  <CheckCircleIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+                  <span>Zero Platform Fees</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Hero Graphic / Interactive Card Preview */}
+            {/* Right Column: Hero Food Preview Card */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-[#e5ded3] overflow-hidden">
                 <div className="flex items-center justify-between pb-4 border-b border-[#f1ede4]">
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-xl bg-[#d8f3dc] text-[#1b4332] flex items-center justify-center">
-                      <LeafIcon className="w-5 h-5 text-[#2d6a4f]" />
+                      <LeafIcon className="w-5 h-5 text-[#2d6a4f]" size={20} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm text-[#1b4332]">Live Donation Feed</h4>
-                      <p className="text-[11px] text-[#526359]">Simulated Active Postings</p>
+                      <h4 className="font-bold text-sm text-[#1b4332]">Recent Food Postings</h4>
+                      <p className="text-[11px] text-[#526359]">Sample surplus listings</p>
                     </div>
                   </div>
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#f0f7f3] text-[#2d6a4f] text-[11px] font-semibold border border-[#d8f3dc]">
-                    <span className="w-2 h-2 rounded-full bg-[#52b788] animate-ping"></span>
-                    Live Demo
+                    <span className="w-2 h-2 rounded-full bg-[#52b788]"></span>
+                    Demo Feed
                   </span>
                 </div>
 
@@ -124,7 +127,7 @@ export default function HomePage() {
                   <div className="p-3.5 rounded-2xl bg-[#fcfbf7] border border-[#e5ded3] flex items-center gap-3 hover:bg-[#f4efe6] transition-colors">
                     <img
                       src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=150&q=80"
-                      alt="Biryani Meals"
+                      alt="Vegetable Pulao"
                       className="w-14 h-14 rounded-xl object-cover shrink-0"
                     />
                     <div className="flex-1 min-w-0">
@@ -132,19 +135,19 @@ export default function HomePage() {
                         <span className="text-[10px] font-bold text-[#2d6a4f] bg-[#d8f3dc] px-2 py-0.5 rounded-md">
                           Cooked Meals
                         </span>
-                        <span className="text-[11px] text-amber-700 font-semibold">Today 7:30 PM</span>
+                        <span className="text-[11px] text-amber-700 font-semibold">Today 8:00 PM</span>
                       </div>
                       <h5 className="font-bold text-xs text-[#1b4332] truncate mt-1">
-                        Vegetable Biryani Boxes (45 Servings)
+                        Freshly Prepared Vegetable Pulao
                       </h5>
-                      <p className="text-[11px] text-[#526359] truncate">Campus Central Canteen</p>
+                      <p className="text-[11px] text-[#526359] truncate">35 Packed Containers • Sunrise Kitchen</p>
                     </div>
                   </div>
 
                   <div className="p-3.5 rounded-2xl bg-[#fcfbf7] border border-[#e5ded3] flex items-center gap-3 hover:bg-[#f4efe6] transition-colors">
                     <img
                       src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=150&q=80"
-                      alt="Fresh bread"
+                      alt="Bakery Rolls"
                       className="w-14 h-14 rounded-xl object-cover shrink-0"
                     />
                     <div className="flex-1 min-w-0">
@@ -152,12 +155,12 @@ export default function HomePage() {
                         <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md">
                           Bakery
                         </span>
-                        <span className="text-[11px] text-amber-700 font-semibold">Today 9:00 PM</span>
+                        <span className="text-[11px] text-amber-700 font-semibold">Today 9:30 PM</span>
                       </div>
                       <h5 className="font-bold text-xs text-[#1b4332] truncate mt-1">
-                        Whole Wheat Artisan Bread (28 Loaves)
+                        Unused Bread Loaves & Rolls
                       </h5>
-                      <p className="text-[11px] text-[#526359] truncate">Daily Crust Bakery</p>
+                      <p className="text-[11px] text-[#526359] truncate">25 Loaves & 50 Rolls • Daily Crust</p>
                     </div>
                   </div>
                 </div>
@@ -167,8 +170,8 @@ export default function HomePage() {
                     href="/available-food"
                     className="flex items-center justify-between w-full p-2.5 rounded-xl bg-[#2d6a4f]/10 hover:bg-[#2d6a4f]/20 text-[#1b4332] text-xs font-semibold transition-colors"
                   >
-                    <span>Explore All Available Listings ({donations.length})</span>
-                    <ArrowRightIcon className="w-4 h-4 text-[#2d6a4f]" />
+                    <span>Browse All Active Listings ({donations.length})</span>
+                    <ArrowRightIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
                   </Link>
                 </div>
               </div>
@@ -177,53 +180,61 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Simulated Impact Statistics */}
+      {/* Service Pillars (Real-World Features Instead of Invented Stats) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-[#1b4332] to-[#2d6a4f] rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
-          <div className="relative z-10 space-y-8">
-            <div className="text-center max-w-2xl mx-auto space-y-2">
+        <div className="bg-[#1b4332] rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10 space-y-6">
+            <div className="text-center max-w-2xl mx-auto space-y-1">
               <span className="text-xs font-bold tracking-wider uppercase text-[#52b788]">
-                Demonstration Impact Metrics
+                How Surplus Redistribution Works
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-                Hypothetical Community Outcomes
+                Simple, Responsible Community Food Sharing
               </h2>
               <p className="text-xs sm:text-sm text-[#d8f3dc]">
-                Simulated measurable impact achieved when food surplus is diverted from landfills to hunger relief centers.
+                A practical pipeline connecting surplus providers directly with verified local organizations.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-4">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 text-center border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-white">1,480+</div>
-                <div className="text-xs sm:text-sm font-medium text-[#d8f3dc] mt-1">
-                  Surplus Meals Recovered
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 space-y-2">
+                <div className="w-9 h-9 rounded-xl bg-[#2d6a4f] flex items-center justify-center text-[#52b788]">
+                  <UtensilsIcon className="w-5 h-5" size={20} />
                 </div>
-                <div className="text-[10px] text-white/60 mt-1">Simulated Demo Log</div>
+                <h3 className="font-bold text-sm text-white">Cooked & Fresh Food</h3>
+                <p className="text-xs text-[#d8f3dc] leading-relaxed">
+                  Surplus batch meals, fresh bread, produce crates, and sealed dairy products accepted within safe consumption windows.
+                </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 text-center border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-white">42</div>
-                <div className="text-xs sm:text-sm font-medium text-[#d8f3dc] mt-1">
-                  Local Partner Shelters
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 space-y-2">
+                <div className="w-9 h-9 rounded-xl bg-[#2d6a4f] flex items-center justify-center text-[#52b788]">
+                  <ClockIcon className="w-5 h-5" size={20} />
                 </div>
-                <div className="text-[10px] text-white/60 mt-1">NGOs & Orphanages</div>
+                <h3 className="font-bold text-sm text-white">Strict Pickup Windows</h3>
+                <p className="text-xs text-[#d8f3dc] leading-relaxed">
+                  Every listing includes preparation time and a pickup deadline so recipients collect food while fresh.
+                </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 text-center border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-white">940 kg</div>
-                <div className="text-xs sm:text-sm font-medium text-[#d8f3dc] mt-1">
-                  Landfill Waste Prevented
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 space-y-2">
+                <div className="w-9 h-9 rounded-xl bg-[#2d6a4f] flex items-center justify-center text-[#52b788]">
+                  <BuildingIcon className="w-5 h-5" size={20} />
                 </div>
-                <div className="text-[10px] text-white/60 mt-1">Methane Emissions Averted</div>
+                <h3 className="font-bold text-sm text-white">Direct Handover</h3>
+                <p className="text-xs text-[#d8f3dc] leading-relaxed">
+                  Community shelters and kitchens claim items online and pick them up directly from the donor location.
+                </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 text-center border border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-white">&lt; 35 min</div>
-                <div className="text-xs sm:text-sm font-medium text-[#d8f3dc] mt-1">
-                  Average Claim Response
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 space-y-2">
+                <div className="w-9 h-9 rounded-xl bg-[#2d6a4f] flex items-center justify-center text-[#52b788]">
+                  <ShieldCheckIcon className="w-5 h-5" size={20} />
                 </div>
-                <div className="text-[10px] text-white/60 mt-1">Hyper-local Dispatch</div>
+                <h3 className="font-bold text-sm text-white">Food Safety First</h3>
+                <p className="text-xs text-[#d8f3dc] leading-relaxed">
+                  Clear guidelines on hygienic packing, temperature maintenance, and immediate disposal of questionable items.
+                </p>
               </div>
             </div>
           </div>
@@ -234,13 +245,13 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-[#2d6a4f]">
-            Structured Workflow
+            Step-By-Step Process
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1b4332]">
-            How The Platform Operates
+            How The Platform Works
           </h2>
           <p className="text-sm sm:text-base text-[#526359] leading-relaxed">
-            Our student CEP prototype replaces slow phone calls and uncoordinated group messages with an intuitive, 4-step surplus redistribution pipeline.
+            From kitchen surplus to community meals in four straightforward steps.
           </p>
         </div>
 
@@ -250,9 +261,9 @@ export default function HomePage() {
             <div className="w-12 h-12 rounded-xl bg-[#d8f3dc] text-[#1b4332] font-black text-lg flex items-center justify-center">
               01
             </div>
-            <h3 className="font-bold text-base text-[#1b4332]">Donor Posts Surplus</h3>
+            <h3 className="font-bold text-base text-[#1b4332]">List Surplus Food</h3>
             <p className="text-xs text-[#526359] leading-relaxed">
-              Canteens, banquets, or bakeries submit food category, quantity, preparation time, and safe pickup deadline.
+              Donors specify food category, estimated quantity, preparation timestamp, packaging condition, and the pickup deadline.
             </p>
           </div>
 
@@ -261,9 +272,9 @@ export default function HomePage() {
             <div className="w-12 h-12 rounded-xl bg-[#d8f3dc] text-[#1b4332] font-black text-lg flex items-center justify-center">
               02
             </div>
-            <h3 className="font-bold text-base text-[#1b4332]">Immediate Listing</h3>
+            <h3 className="font-bold text-base text-[#1b4332]">Browse & Discover</h3>
             <p className="text-xs text-[#526359] leading-relaxed">
-              The listing goes live immediately on the Available Food catalogue with search, location tag, and dietary filters.
+              Community shelters, orphanages, and food kitchens review available listings filtered by category and locality.
             </p>
           </div>
 
@@ -272,9 +283,9 @@ export default function HomePage() {
             <div className="w-12 h-12 rounded-xl bg-[#d8f3dc] text-[#1b4332] font-black text-lg flex items-center justify-center">
               03
             </div>
-            <h3 className="font-bold text-base text-[#1b4332]">NGO / Shelter Claims</h3>
+            <h3 className="font-bold text-base text-[#1b4332]">Reserve the Listing</h3>
             <p className="text-xs text-[#526359] leading-relaxed">
-              Verified local charity partners review the quantity and click "Claim Food" to reserve the items and prevent duplicate claims.
+              The claiming organization enters their coordinator contact details, marking the food as "Reserved" to prevent duplication.
             </p>
           </div>
 
@@ -283,9 +294,9 @@ export default function HomePage() {
             <div className="w-12 h-12 rounded-xl bg-[#d8f3dc] text-[#1b4332] font-black text-lg flex items-center justify-center">
               04
             </div>
-            <h3 className="font-bold text-base text-[#1b4332]">Coordinated Pickup</h3>
+            <h3 className="font-bold text-base text-[#1b4332]">Pick Up & Distribute</h3>
             <p className="text-xs text-[#526359] leading-relaxed">
-              Volunteers collect the packaged food within the stipulated safety window and distribute it to targeted community members.
+              The recipient collects the food before the deadline and serves it safely to community members in need.
             </p>
           </div>
         </div>
@@ -296,22 +307,22 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[#2d6a4f]">
-              Active Listings Preview
+              Community Inventory
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1b4332] mt-1">
-              Featured Available Food
+              Available Food Listings
             </h2>
             <p className="text-xs sm:text-sm text-[#526359] mt-1">
-              Fresh surplus items ready for simulated reservation by community groups.
+              Sample food surplus entries ready for local community reservation.
             </p>
           </div>
 
           <Link
             href="/available-food"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#2d6a4f] hover:text-[#1b4332] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#2d6a4f] hover:text-[#1b4332] transition-colors cursor-pointer"
           >
             <span>View All ({donations.length}) Listings</span>
-            <ArrowRightIcon className="w-4 h-4" />
+            <ArrowRightIcon className="w-4 h-4" size={16} />
           </Link>
         </div>
 
@@ -325,59 +336,59 @@ export default function HomePage() {
         <div className="text-center pt-4">
           <Link
             href="/available-food"
-            className="inline-flex items-center gap-2 bg-[#efe8da] hover:bg-[#e2d8c3] text-[#1b4332] font-semibold text-sm px-6 py-3 rounded-xl transition-all"
+            className="inline-flex items-center gap-2 bg-[#efe8da] hover:bg-[#e2d8c3] text-[#1b4332] font-semibold text-sm px-6 py-3 rounded-xl transition-all cursor-pointer"
           >
-            <UtensilsIcon className="w-4 h-4 text-[#2d6a4f]" />
-            <span>Search & Filter All Available Food Items</span>
+            <UtensilsIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+            <span>Search & Filter All Available Food Listings</span>
           </Link>
         </div>
       </section>
 
-      {/* CEP Problem Statement Highlight Banner */}
+      {/* Food Safety & Responsible Redistribution Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#f4efe6] rounded-3xl p-8 sm:p-10 border border-[#e5ded3] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8 space-y-4">
             <span className="inline-block px-3 py-1 rounded-full bg-[#1b4332] text-white text-xs font-semibold">
-              The Academic Motivation
+              Food Safety Standards
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1b4332]">
-              Why Smart Food Distribution Matters
+              Safety and Quality Responsibilities
             </h3>
             <p className="text-sm text-[#526359] leading-relaxed">
-              According to the UN Food Waste Index, approximately 1 billion metric tons of edible food is discarded annually, while over 700 million individuals face food insecurity. In urban centers, banquet halls and large canteens routinely discard nutritious meals purely due to lack of immediate, hyper-local coordination. This CEP project demonstrates how client-side accessible technology can bridge this gap.
+              Ensuring that shared food remains safe and wholesome is the core priority of our platform. Donors are asked to offer only food they would confidently serve to their own families. Cooked dishes must be packed hot in food-grade containers or chilled rapidly, and all items must be retrieved within the agreed timeframe.
             </p>
             <div className="pt-2 flex flex-wrap gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-xs font-bold text-[#2d6a4f] hover:underline"
+                className="inline-flex items-center gap-2 text-xs font-bold text-[#2d6a4f] hover:underline cursor-pointer"
               >
-                <span>Read Full Academic Problem Statement & Objectives</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <span>Read Full Safety & Distribution Guidelines</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" size={14} />
               </Link>
             </div>
           </div>
 
           <div className="lg:col-span-4 bg-white p-6 rounded-2xl border border-[#e5ded3] shadow-sm space-y-3">
             <h4 className="font-bold text-sm text-[#1b4332] flex items-center gap-2">
-              <ShieldCheckIcon className="w-4 h-4 text-[#2d6a4f]" />
-              Evaluation Highlights
+              <ShieldCheckIcon className="w-4 h-4 text-[#2d6a4f]" size={16} />
+              Donation Checklist
             </h4>
             <ul className="text-xs text-[#526359] space-y-2">
               <li className="flex items-start gap-2">
                 <span className="text-[#2d6a4f] font-bold">✓</span>
-                <span>Zero complex external backend dependencies.</span>
+                <span>Fresh, untouched, and properly prepared food only.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#2d6a4f] font-bold">✓</span>
-                <span>Full Next.js App Router & TypeScript codebase.</span>
+                <span>State accurate preparation time & storage requirements.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#2d6a4f] font-bold">✓</span>
-                <span>Deterministic demo state saved to localStorage.</span>
+                <span>Food-grade, clean packaging containers used.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#2d6a4f] font-bold">✓</span>
-                <span>Ready for live student presentation and defense.</span>
+                <span>Strict pickup deadline clearly communicated.</span>
               </li>
             </ul>
           </div>

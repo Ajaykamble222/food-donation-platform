@@ -5,16 +5,16 @@ import Footer from "@/components/Footer";
 import BannerNotice from "@/components/BannerNotice";
 
 export const metadata: Metadata = {
-  title: "Smart Food Donation and Distribution Platform | Student CEP Project",
+  title: "Smart Food Donation and Distribution Platform | Share Good Food, Reduce Waste",
   description:
-    "A college academic Community Engagement Project (CEP) connecting surplus food donors (restaurants, canteens, events) with local NGOs, shelters, and volunteers to reduce food waste and alleviate hunger.",
+    "Connect surplus food from homes, restaurants, bakeries, and community kitchens with people and organizations that can use it. Simple, direct local food redistribution.",
   keywords: [
     "food donation platform",
     "smart food distribution",
     "food waste reduction",
-    "CEP college project",
+    "community food sharing",
     "surplus food recovery",
-    "zero hunger SDG",
+    "local hunger relief",
   ],
 };
 

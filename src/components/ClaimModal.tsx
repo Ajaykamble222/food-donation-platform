@@ -24,25 +24,25 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!recipientName.trim() || !phone.trim() || !organization.trim()) {
-      setError("Please fill in all required fields (Name, Organization, and Phone).");
+      setError("Please fill in all required fields (Name, Organization, and Phone Number).");
       return;
     }
 
-    // Update status in local storage
+    // Update status in store
     updateDonationStatus(food.id, "Reserved");
 
-    // Also record a simulated request
+    // Also record a matching claim request
     saveRequest({
       requesterName: recipientName.trim(),
       organization: organization.trim(),
       requesterType: "Community Partner",
-      foodRequirement: `Claimed: ${food.foodName} (${food.quantity})`,
+      foodRequirement: `Reserved: ${food.foodName} (${food.quantity})`,
       quantityNeeded: food.quantity,
       location: food.location,
       urgency: pickupTime || "Within deadline window",
       contactPhone: phone.trim(),
       contactEmail: `${recipientName.toLowerCase().replace(/\s+/g, ".")}@example.org`,
-      additionalNotes: `Simulated claim generated from Available Food catalogue. Donor: ${food.donorName}`,
+      additionalNotes: `Direct reservation from Available Food inventory. Donor: ${food.donorName}`,
     });
 
     setSubmitted(true);
@@ -67,15 +67,15 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
           <div className="flex items-center gap-2">
             <span className="text-xl">🤝</span>
             <div>
-              <h3 className="font-bold text-lg text-white">Reserve / Claim Food Item</h3>
-              <p className="text-xs text-[#a3b899]">Simulated NGO / Volunteer Claim Workflow</p>
+              <h3 className="font-bold text-lg text-white">Reserve Food Listing</h3>
+              <p className="text-xs text-[#a3b899]">Community pickup coordination</p>
             </div>
           </div>
           <button
             onClick={handleClose}
-            className="text-[#e8ded0] hover:text-white p-1 rounded-lg hover:bg-[#2d6a4f] transition-colors"
+            className="text-[#e8ded0] hover:text-white p-1 rounded-lg hover:bg-[#2d6a4f] transition-colors cursor-pointer"
           >
-            <XIcon className="w-5 h-5" />
+            <XIcon className="w-5 h-5" size={20} />
           </button>
         </div>
 
@@ -84,15 +84,14 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
           {submitted ? (
             <div className="text-center py-4 space-y-4">
               <div className="w-14 h-14 rounded-full bg-[#d8f3dc] text-[#1b4332] flex items-center justify-center mx-auto shadow-inner">
-                <CheckCircleIcon className="w-8 h-8 text-[#2d6a4f]" />
+                <CheckCircleIcon className="w-8 h-8 text-[#2d6a4f]" size={32} />
               </div>
-              <h4 className="text-xl font-bold text-[#1b4332]">Claim Registered Successfully!</h4>
+              <h4 className="text-xl font-bold text-[#1b4332]">Listing Reserved</h4>
               <p className="text-sm text-[#526359] leading-relaxed">
-                Item <strong className="text-[#1b4332]">"{food.foodName}"</strong> status has been updated to{" "}
+                Item <strong className="text-[#1b4332]">"{food.foodName}"</strong> has been marked as{" "}
                 <span className="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold text-xs">
                   Reserved
-                </span>{" "}
-                in this demo environment.
+                </span>.
               </p>
 
               <div className="bg-[#f0f7f3] border border-[#d8f3dc] p-4 rounded-xl text-left text-xs text-[#1f2d25] space-y-1.5">
@@ -100,22 +99,22 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
                   <strong>Donor:</strong> {food.donorName} ({food.contactPhone})
                 </p>
                 <p>
-                  <strong>Pickup Point:</strong> {food.location}
+                  <strong>Pickup Location:</strong> {food.location}
                 </p>
                 <p>
-                  <strong>Deadline:</strong> {food.pickupDeadline}
+                  <strong>Collection Deadline:</strong> {food.pickupDeadline}
                 </p>
                 <p>
-                  <strong>Claimed by:</strong> {recipientName} ({organization})
+                  <strong>Reserved by:</strong> {recipientName} ({organization})
                 </p>
               </div>
 
               <div className="pt-2">
                 <button
                   onClick={handleClose}
-                  className="w-full bg-[#1b4332] hover:bg-[#2d6a4f] text-white font-semibold py-2.5 rounded-xl transition-all shadow"
+                  className="w-full bg-[#1b4332] hover:bg-[#2d6a4f] text-white font-semibold py-2.5 rounded-xl transition-all shadow cursor-pointer"
                 >
-                  Done (Return to Available Food)
+                  Return to Available Food
                 </button>
               </div>
             </div>
@@ -130,11 +129,11 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-[#526359]">
-                  <MapPinIcon className="w-3.5 h-3.5 text-[#2d6a4f]" />
+                  <MapPinIcon className="w-3.5 h-3.5 text-[#2d6a4f]" size={14} />
                   <span>{food.location}</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-[#d97706] font-medium">
-                  <ClockIcon className="w-3.5 h-3.5" />
+                  <ClockIcon className="w-3.5 h-3.5" size={14} />
                   <span>Pickup Deadline: {food.pickupDeadline}</span>
                 </div>
               </div>
@@ -148,12 +147,12 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
               {/* Form inputs */}
               <div>
                 <label className="block text-xs font-semibold text-[#1b4332] mb-1">
-                  Requester / Volunteer Name *
+                  Representative / Volunteer Name *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. John Doe / Volunteer Coordinator"
+                  placeholder="e.g. Priya Sharma, Volunteer Lead"
                   value={recipientName}
                   onChange={(e) => setRecipientName(e.target.value)}
                   className="w-full text-sm px-3.5 py-2 rounded-xl border border-[#d2c9b8] bg-white focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
@@ -162,12 +161,12 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
 
               <div>
                 <label className="block text-xs font-semibold text-[#1b4332] mb-1">
-                  Organization / Shelter / NGO Name *
+                  Organization / Shelter / Community Group *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Hope Shelter / Community Care Trust"
+                  placeholder="e.g. St. Jude Shelter, Community Meals Team"
                   value={organization}
                   onChange={(e) => setOrganization(e.target.value)}
                   className="w-full text-sm px-3.5 py-2 rounded-xl border border-[#d2c9b8] bg-white focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
@@ -194,7 +193,7 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. Today by 6:00 PM"
+                    placeholder="e.g. Today by 6:30 PM"
                     value={pickupTime}
                     onChange={(e) => setPickupTime(e.target.value)}
                     className="w-full text-sm px-3.5 py-2 rounded-xl border border-[#d2c9b8] bg-white focus:outline-none focus:ring-2 focus:ring-[#2d6a4f]"
@@ -203,9 +202,9 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
               </div>
 
               <div className="p-3 bg-[#f0f7f3] border border-[#d8f3dc] rounded-xl flex items-start gap-2 text-xs text-[#2d6a4f]">
-                <ShieldCheckIcon className="w-4 h-4 shrink-0 mt-0.5" />
+                <ShieldCheckIcon className="w-4 h-4 shrink-0 mt-0.5" size={16} />
                 <p>
-                  <strong>Academic Project Note:</strong> Submitting this form tests local state transition and immediately marks the card as Reserved.
+                  <strong>Collection Responsibility:</strong> By reserving this item, you agree to coordinate transport directly with the donor and complete pickup before the stated deadline.
                 </p>
               </div>
 
@@ -213,7 +212,7 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="px-4 py-2 text-xs font-semibold text-[#526359] hover:text-[#1b4332] transition-colors"
+                  className="px-4 py-2 text-xs font-semibold text-[#526359] hover:text-[#1b4332] transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
@@ -221,7 +220,7 @@ export default function ClaimModal({ food, isOpen, onClose, onSuccess }: ClaimMo
                   type="submit"
                   className="px-5 py-2.5 text-xs font-semibold rounded-xl bg-[#2d6a4f] hover:bg-[#1b4332] text-white shadow transition-all cursor-pointer"
                 >
-                  Confirm Claim Demo
+                  Confirm Reservation
                 </button>
               </div>
             </form>
